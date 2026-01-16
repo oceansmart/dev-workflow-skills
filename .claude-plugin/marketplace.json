@@ -1,0 +1,13 @@
+{
+  "name": "dev-workflow-skills",
+  "description": "Development workflow skills for Jira and Notion integration with Claude Code",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "dev-workflow-skills",
+      "description": "Jira and Notion integration commands for development workflow automation",
+      "version": "1.0.0",
+      "path": "."
+    }
+  ]
+}
