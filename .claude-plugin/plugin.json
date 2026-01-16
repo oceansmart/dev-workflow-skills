@@ -1,0 +1,99 @@
+{
+  "name": "dev-workflow-skills",
+  "version": "1.0.0",
+  "description": "Development workflow skills for Jira and Notion integration with Claude Code",
+  "author": "oceansmart",
+  "license": "MIT",
+  "homepage": "https://github.com/oceansmart/dev-workflow-skills",
+  "keywords": [
+    "jira",
+    "notion",
+    "project-management",
+    "workflow",
+    "automation"
+  ],
+  "commands": {
+    "jira:list": {
+      "description": "Jira 프로젝트 백로그 목록 조회",
+      "file": "commands/jira/list.md"
+    },
+    "jira:show": {
+      "description": "Jira 이슈 상세 정보 조회 및 요구사항 명확화",
+      "file": "commands/jira/show.md"
+    },
+    "jira:create": {
+      "description": "Jira 티켓 생성",
+      "file": "commands/jira/create.md"
+    },
+    "jira:start": {
+      "description": "Jira 티켓 작업 시작 - 상태 변경 및 feature 브랜치 생성",
+      "file": "commands/jira/start.md"
+    },
+    "jira:assign": {
+      "description": "Jira 이슈 담당자 지정",
+      "file": "commands/jira/assign.md"
+    },
+    "jira:implement": {
+      "description": "Jira 티켓 구현 - 타입별 구현 지침에 따른 코드 작성",
+      "file": "commands/jira/implement.md"
+    },
+    "jira:verify": {
+      "description": "Jira 티켓 완료 전 검증 프로세스 실행",
+      "file": "commands/jira/verify.md"
+    },
+    "jira:pr": {
+      "description": "Jira 티켓 기반 PR 생성 - 템플릿 자동 적용 및 Jira 연동",
+      "file": "commands/jira/pr.md"
+    },
+    "jira:merge": {
+      "description": "PR 머지 및 브랜치 정리",
+      "file": "commands/jira/merge.md"
+    },
+    "jira:impl-backend-api": {
+      "description": "Backend API 개발 구현 지침",
+      "file": "commands/jira/impl-backend-api.md"
+    },
+    "jira:impl-frontend": {
+      "description": "Frontend 개발 구현 지침",
+      "file": "commands/jira/impl-frontend.md"
+    },
+    "jira:impl-database": {
+      "description": "Database 작업 구현 지침",
+      "file": "commands/jira/impl-database.md"
+    },
+    "jira:impl-bugfix": {
+      "description": "버그 수정 구현 지침",
+      "file": "commands/jira/impl-bugfix.md"
+    },
+    "notion:search": {
+      "description": "Notion 워크스페이스에서 페이지/데이터베이스를 제목으로 검색",
+      "file": "commands/notion/search.md"
+    }
+  },
+  "mcp_servers": {
+    "jira": {
+      "command": "uvx",
+      "args": ["mcp-server-jira"],
+      "env_template": {
+        "JIRA_INSTANCE_URL": "https://your-domain.atlassian.net",
+        "JIRA_USER_EMAIL": "your-email@example.com",
+        "JIRA_API_TOKEN": "your-api-token"
+      },
+      "setup_url": "https://id.atlassian.com/manage-profile/security/api-tokens"
+    },
+    "notion": {
+      "command": "npx",
+      "args": ["-y", "@notionhq/notion-mcp-server"],
+      "env_template": {
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\": \"Bearer YOUR_NOTION_TOKEN\", \"Notion-Version\": \"2022-06-28\"}"
+      },
+      "setup_url": "https://www.notion.so/my-integrations"
+    }
+  },
+  "config_files": {
+    "jira": {
+      "path": ".claude/config/jira.md",
+      "description": "Jira 프로젝트별 설정 (Project Key, Board ID 등)"
+    }
+  }
+}
