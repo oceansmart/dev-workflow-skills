@@ -7,17 +7,21 @@
     "name": "OceanSmart",
     "email": "dev@oceansmart.ai"
   },
+  "metadata": {
+    "description": "A curated collection of Jira and Notion workflow plugins",
+    "version": "1.0.0"
+  },
   "plugins": [
     {
       "name": "dev-workflow-skills",
       "description": "Jira and Notion integration commands for development workflow automation",
       "version": "1.0.0",
       "author": {
-        "name": "OceanSmart",
-        "email": "dev@oceansmart.ai"
+        "name": "OceanSmart"
       },
-      "source": ".",
-      "category": "productivity"
+      "source": "./",
+      "category": "productivity",
+      "tags": ["jira", "notion", "workflow", "automation"]
     }
   ]
 }
