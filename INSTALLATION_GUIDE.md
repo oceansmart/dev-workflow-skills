@@ -11,7 +11,8 @@ Claude Code용 개발 워크플로우 플러그인 (Jira, Notion 연동)
 3. [MCP 서버 설정](#mcp-서버-설정)
 4. [프로젝트별 설정](#프로젝트별-설정)
 5. [사용 가능한 명령어](#사용-가능한-명령어)
-6. [문제 해결](#문제-해결)
+6. [플러그인 관리](#플러그인-관리)
+7. [문제 해결](#문제-해결)
 
 ---
 
@@ -29,7 +30,7 @@ Claude Code 플러그인은 슬래시 명령어(`/jira:list`, `/notion:search` �
 │         oceansmart/dev-workflow-skills (저장소)              │
 │                           │                                  │
 │    ┌──────────────────────┴──────────────────────┐          │
-│    │  plugin.json, commands/*.md (플러그인 소스)  │          │
+│    │  marketplace.json, plugin.json, commands/   │          │
 │    └──────────────────────┬──────────────────────┘          │
 └───────────────────────────┼─────────────────────────────────┘
                             │
@@ -104,6 +105,13 @@ claude plugin install dev-workflow-skills
 **확인:**
 ```bash
 claude plugin list
+```
+
+출력 예시:
+```
+Installed plugins:
+
+  ❯ dev-workflow-skills@dev-workflow-skills (user)
 ```
 
 ### Step 3: Claude Code 재시작
@@ -317,6 +325,50 @@ MCP 설정 완료 후 Jira 명령어를 실행하면:
 
 ---
 
+## 플러그인 관리
+
+### 설치된 플러그인 목록
+
+```bash
+claude plugin list
+```
+
+### 플러그인 업데이트
+
+새 버전이 릴리즈되면:
+
+```bash
+# 마켓플레이스 캐시 업데이트
+claude plugin marketplace update dev-workflow-skills
+
+# 플러그인 업데이트
+claude plugin update dev-workflow-skills
+
+# Claude Code 재시작
+```
+
+### 플러그인 비활성화/활성화
+
+```bash
+# 비활성화
+claude plugin disable dev-workflow-skills
+
+# 활성화
+claude plugin enable dev-workflow-skills
+```
+
+### 플러그인 제거
+
+```bash
+# 플러그인 제거
+claude plugin uninstall dev-workflow-skills
+
+# 마켓플레이스도 제거하려면
+claude plugin marketplace remove dev-workflow-skills
+```
+
+---
+
 ## 문제 해결
 
 ### "Unknown skill: jira:list"
@@ -376,32 +428,6 @@ claude
 2. 우측 상단 "..." 메뉴 클릭
 3. "Connections" 선택
 4. 생성한 Integration 추가
-
----
-
-## 플러그인 업데이트
-
-새 버전이 릴리즈되면:
-
-```bash
-claude plugin update dev-workflow-skills
-```
-
-그 후 Claude Code 재시작.
-
----
-
-## 플러그인 제거
-
-```bash
-claude plugin uninstall dev-workflow-skills
-```
-
-마켓플레이스도 제거하려면:
-
-```bash
-claude plugin marketplace remove dev-workflow-skills
-```
 
 ---
 

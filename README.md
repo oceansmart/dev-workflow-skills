@@ -5,7 +5,13 @@ Claude Code plugin for development workflow automation with Jira and Notion inte
 ## Installation
 
 ```bash
-/plugin install oceansmart/dev-workflow-skills
+# 1. 마켓플레이스 등록
+claude plugin marketplace add oceansmart/dev-workflow-skills
+
+# 2. 플러그인 설치
+claude plugin install dev-workflow-skills
+
+# 3. Claude Code 재시작
 ```
 
 ## Available Commands
@@ -39,26 +45,46 @@ Claude Code plugin for development workflow automation with Jira and Notion inte
 |---------|-------------|
 | `/notion:search` | 페이지/데이터베이스 검색 |
 
-## Setup
+## Setup Requirements
 
 ### 1. MCP Server Configuration
 
-This plugin requires MCP servers for Jira and Notion. On first use, the plugin will guide you through setup.
+첫 명령어 실행 시 자동 안내됩니다.
 
 **Jira MCP:**
-- Jira Instance URL
+- Jira Instance URL (예: `https://company.atlassian.net`)
 - User Email
-- API Token ([Get token](https://id.atlassian.com/manage-profile/security/api-tokens))
+- API Token ([발급 링크](https://id.atlassian.com/manage-profile/security/api-tokens))
 
 **Notion MCP:**
-- Integration Token ([Create integration](https://www.notion.so/my-integrations))
+- Integration Token ([발급 링크](https://www.notion.so/my-integrations))
 
 ### 2. Project Configuration
 
-For Jira commands, create `.claude/config/jira.md` in your project root with:
-- Project Key (e.g., `SMFD`)
+Jira 명령어 사용 시 `.claude/config/jira.md` 파일 필요 (첫 실행 시 자동 생성 안내)
+
+필요한 정보:
+- Project Key (예: `SMFD`)
 - Board ID
 - Board Type (scrum/kanban)
+
+## Plugin Management
+
+```bash
+# 설치된 플러그인 목록
+claude plugin list
+
+# 플러그인 업데이트
+claude plugin marketplace update dev-workflow-skills
+claude plugin update dev-workflow-skills
+
+# 플러그인 제거
+claude plugin uninstall dev-workflow-skills
+```
+
+## Documentation
+
+자세한 설치 및 설정 가이드: [INSTALLATION_GUIDE.md](./INSTALLATION_GUIDE.md)
 
 ## License
 
